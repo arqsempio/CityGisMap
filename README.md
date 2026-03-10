@@ -1,6 +1,6 @@
 <div align="center">
 <img src="logo-transparente.png" alt="CityGisMap Logo" height="150">
-<h1>CityGisMap 🗺️🛸</h1>
+<h1>CityGisMap</h1>
 <p><em>Transformando la información geográfica en poder estratégico.</em></p>
 
 <h3>👉 <a href="https://arqsempio.github.io/CityGisMap/">VER NUESTRO PORTAFOLIO INTERACTIVO AQUÍ</a> 👈</h3>
