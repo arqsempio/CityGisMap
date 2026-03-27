@@ -11,12 +11,15 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #FDFBF7; color: #333; }
         .tech-box { border-left: 4px solid #4A90E2; background-color: white; }
+        .img-container { overflow: hidden; border-radius: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .img-container img { transition: transform 0.5s ease; width: 100%; height: auto; display: block; }
+        .img-container:hover img { transform: scale(1.03); }
     </style>
 </head>
 <body class="antialiased">
     <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="./index.html" class="flex items-center font-bold text-gray-700 hover:text-[#4A90E2]">
+            <a href="./index.html" class="flex items-center font-bold text-gray-700 hover:text-[#4A90E2] transition-colors">
                 <span class="mr-2">←</span> Volver al Inicio
             </a>
             <img src="logo-transparente.png" alt="CityGisMap logo" class="h-10">
@@ -24,38 +27,46 @@
     </header>
 
     <main>
-        <!-- Intro -->
+        <!-- Intro Section -->
         <section class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6 text-center">
                 <span class="text-[#4A90E2] font-bold uppercase tracking-widest text-sm">Topografía y Relevamiento 3D</span>
                 <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mt-4 mb-6">Villa La Punta</h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
                     Desafío técnico en zona de serranías: Generación de cartografía de precisión y modelos de elevación para planificación de infraestructura.
                 </p>
+                <div class="img-container max-w-5xl mx-auto">
+                    <!-- Reemplaza con la imagen principal de Villa La Punta -->
+                    <img src="villalapunta-portada.jpg" alt="Villa La Punta Hero">
+                </div>
             </div>
         </section>
 
-        <!-- Datos Técnicos Relevados del PDF -->
+        <!-- Datos Técnicos -->
         <section class="py-20 bg-[#FDFBF7]">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="text-3xl font-bold mb-6">Precisión Centimétrica</h2>
-                        <p class="text-gray-600 mb-8">Utilizamos tecnología de fotogrametría aérea para obtener ortofotos con diferentes niveles de detalle según la necesidad del proyecto:</p>
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">Precisión Centimétrica</h2>
+                        <p class="text-gray-600 mb-8 leading-relaxed">Utilizamos tecnología de fotogrametría aérea para obtener ortofotos con diferentes niveles de detalle, permitiendo una visualización nítida del terreno para estudios hídricos y viales.</p>
                         <div class="space-y-4">
-                            <div class="tech-box p-4 shadow-sm rounded-r-xl">
-                                <span class="font-bold text-[#4A90E2]">Máximo Detalle:</span> 1cm / píxel
+                            <div class="tech-box p-5 shadow-sm rounded-r-xl">
+                                <p class="text-sm text-gray-500 uppercase font-bold tracking-tight">Resolución Máxima</p>
+                                <span class="text-lg font-bold text-[#4A90E2]">1cm / píxel</span>
                             </div>
-                            <div class="tech-box p-4 shadow-sm rounded-r-xl">
-                                <span class="font-bold text-[#4A90E2]">Urbano Estándar:</span> 2cm - 5cm / píxel
+                            <div class="tech-box p-5 shadow-sm rounded-r-xl">
+                                <p class="text-sm text-gray-500 uppercase font-bold tracking-tight">Urbano Estándar</p>
+                                <span class="text-lg font-bold text-[#4A90E2]">2cm - 5cm / píxel</span>
                             </div>
-                            <div class="tech-box p-4 shadow-sm rounded-r-xl">
-                                <span class="font-bold text-[#4A90E2]">Planificación Rural:</span> 10cm / píxel
+                            <div class="tech-box p-5 shadow-sm rounded-r-xl">
+                                <p class="text-sm text-gray-500 uppercase font-bold tracking-tight">Planificación Rural</p>
+                                <span class="text-lg font-bold text-[#4A90E2]">10cm / píxel</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-200 h-80 rounded-3xl flex items-center justify-center shadow-inner italic text-gray-400">
-                        <img src="resolucion-ortofotos.jpg" alt="Resolucion Ortofotos" class="h-64 w-full object-cover">
+                    <div class="img-container">
+                        <!-- Aquí va la imagen de comparación de resoluciones -->
+                        <img src="resolucion-ortofotos.jpg" alt="Resolución de Ortofotos" onerror="this.src='https://via.placeholder.com/800x600?text=Imagen+Resoluciones+Ortofotos'">
                     </div>
                 </div>
             </div>
@@ -66,30 +77,30 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-bold mb-4">Modelado de Terreno Complejo</h2>
-                    <p class="text-gray-500">Villa La Punta presenta variaciones de altura desde los 520m hasta los 700m.</p>
+                    <p class="text-gray-500 max-w-2xl mx-auto">Villa La Punta presenta variaciones de altura significativas (520m a 700m), lo que requiere un procesamiento de datos exhaustivo.</p>
                 </div>
                 
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="p-8 bg-[#FDFBF7] rounded-3xl text-center">
-                        <div class="text-3xl mb-4">🏔️</div>
-                        <h3 class="font-bold mb-2">Modelo Digital (MDT)</h3>
-                        <p class="text-sm text-gray-500">Representación 3D exacta de la superficie sin vegetación ni edificios.</p>
+                <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                    <div class="p-8 bg-[#FDFBF7] rounded-3xl text-center border border-gray-100">
+                        <div class="text-4xl mb-4">🏔️</div>
+                        <h3 class="font-bold mb-2 text-gray-800">Modelo Digital (MDT)</h3>
+                        <p class="text-sm text-gray-600">Representación 3D exacta de la superficie, filtrando vegetación para análisis de suelo puro.</p>
                     </div>
-                    <div class="p-8 bg-[#FDFBF7] rounded-3xl text-center">
-                        <div class="text-3xl mb-4">📐</div>
-                        <h3 class="font-bold mb-2">Curvas de Nivel</h3>
-                        <p class="text-sm text-gray-500">Esencial para el diseño de desagües, cloacas y trazado de nuevas calles.</p>
+                    <div class="p-8 bg-[#FDFBF7] rounded-3xl text-center border border-gray-100">
+                        <div class="text-4xl mb-4">📐</div>
+                        <h3 class="font-bold mb-2 text-gray-800">Curvas de Nivel</h3>
+                        <p class="text-sm text-gray-600">Generación de líneas de altitud precisas para el diseño técnico de desagües y cloacas.</p>
                     </div>
-                    <div class="p-8 bg-[#FDFBF7] rounded-3xl text-center">
-                        <div class="text-3xl mb-4">🏢</div>
-                        <h3 class="font-bold mb-2">Planimetría</h3>
-                        <h3 class="font-bold mb-2">Planimetría</h3>
-                        <p class="text-sm text-gray-500">Digitalización de la huella urbana sobre la ortofoto de alta resolución.</p>
+                    <div class="p-8 bg-[#FDFBF7] rounded-3xl text-center border border-gray-100">
+                        <div class="text-4xl mb-4">🏢</div>
+                        <h3 class="font-bold mb-2 text-gray-800">Planimetría Digital</h3>
+                        <p class="text-sm text-gray-600">Vectorización de la huella urbana sobre la cartografía base de alta resolución.</p>
                     </div>
                 </div>
                 
-                <div class="mt-16 bg-gray-100 rounded-3xl h-96 flex items-center justify-center italic text-gray-400 shadow-lg">
-                    [Imagen Relevamiento 3D Villa La Punta]
+                <div class="img-container max-w-5xl mx-auto">
+                    <!-- Aquí va la imagen del relevamiento 3D -->
+                    <img src="relevamiento-3d.jpg" alt="Relevamiento 3D Villa La Punta" onerror="this.src='https://via.placeholder.com/1200x600?text=Imagen+Relevamiento+3D+Villa+La+Punta'">
                 </div>
             </div>
         </section>
@@ -98,7 +109,7 @@
     <footer class="bg-gray-900 text-white py-20 text-center">
         <div class="container mx-auto px-6">
             <h2 class="text-2xl font-bold mb-8">Soluciones técnicas para geografías difíciles.</h2>
-            <a href="mailto:contacto@citygismap.com" class="btn-primary px-10 py-4 rounded-full font-bold">Solicitar Cotización Técnica</a>
+            <a href="mailto:contacto@citygismap.com" class="bg-[#4A90E2] text-white px-10 py-4 rounded-full font-bold hover:bg-[#357ABD] transition-all inline-block">Solicitar Cotización Técnica</a>
         </div>
     </footer>
 </body>
