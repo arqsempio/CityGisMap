@@ -11,8 +11,21 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #FDFBF7; color: #333; }
         .tech-box { border-left: 4px solid #4A90E2; background-color: white; }
-        .img-container { overflow: hidden; border-radius: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        .img-container img { transition: transform 0.5s ease; width: 100%; height: auto; display: block; }
+        .img-container { 
+            overflow: hidden; 
+            border-radius: 1.5rem; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+            transform: translateZ(0); /* Estabiliza el renderizado */
+        }
+        .img-container img { 
+            transition: transform 0.5s ease; 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            -webkit-backface-visibility: hidden; 
+            backface-visibility: hidden; /* Evita vibraciones en el renderizado */
+            transform: translateZ(0);
+        }
         .img-container:hover img { transform: scale(1.03); }
     </style>
 </head>
@@ -36,8 +49,8 @@
                     Desafío técnico en zona de serranías: Generación de cartografía de precisión y modelos de elevación para planificación de infraestructura.
                 </p>
                 <div class="img-container max-w-5xl mx-auto">
-                    <!-- Reemplaza con la imagen principal de Villa La Punta -->
-                    <img src="villalapunta-portada.jpg" alt="Villa La Punta Hero">
+                    <!-- Imagen principal de Villa La Punta -->
+                    <img src="Ejemplo degrade 3.JPG" alt="Villa La Punta Hero">
                 </div>
             </div>
         </section>
@@ -65,7 +78,7 @@
                         </div>
                     </div>
                     <div class="img-container">
-                        <!-- Aquí va la imagen de comparación de resoluciones -->
+                        <!-- Imagen de comparación de resoluciones -->
                         <img src="resolucion-ortofotos.jpg" alt="Resolución de Ortofotos" onerror="this.src='https://via.placeholder.com/800x600?text=Imagen+Resoluciones+Ortofotos'">
                     </div>
                 </div>
@@ -99,7 +112,7 @@
                 </div>
                 
                 <div class="img-container max-w-5xl mx-auto">
-                    <!-- Aquí va la imagen del relevamiento 3D -->
+                    <!-- Imagen del relevamiento 3D -->
                     <img src="relevamiento-3d.jpg" alt="Relevamiento 3D Villa La Punta" onerror="this.src='https://via.placeholder.com/1200x600?text=Imagen+Relevamiento+3D+Villa+La+Punta'">
                 </div>
             </div>
