@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Éxito: Fernández | CityGisMap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FDFBF7; color: #333; }
+        .chart-container { position: relative; width: 100%; max-width: 400px; margin: auto; height: 350px; }
+        .active-tab { border-color: #4A90E2; transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .btn-back { transition: all 0.3s ease; }
+        .btn-back:hover { color: #4A90E2; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navegación de Regreso -->
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="./index.html" class="btn-back flex items-center font-bold text-gray-700">
+                <span class="mr-2">←</span> Volver al Inicio
+            </a>
+            <img src="logo-transparente.png" alt="CityGisMap logo" class="h-10">
+        </nav>
+    </header>
+
+    <main>
+        <!-- Encabezado del Reporte -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <span class="text-[#4A90E2] font-bold uppercase tracking-widest text-sm">Reporte de Caso de Éxito</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mt-4 mb-6">Municipio de Fernández</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Un análisis detallado sobre la transformación urbana, infraestructura y digitalización de un municipio de segunda categoría.
+                </p>
+                <div class="mt-12 flex justify-center">
+                    <img src="Ejemplo degrade 3.JPG" alt="Imagen técnica del proyecto Fernández" class="max-w-4xl w-full rounded-2xl shadow-2xl border border-gray-100">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Impacto y Gráficos -->
+        <section class="py-24 bg-[#FDFBF7]">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">Resultados Medibles</h2>
+                <p class="text-gray-500 mb-16 italic">Evolución de la gestión municipal tras la intervención de CityGisMap.</p>
+                
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Gráfico 1: Tiempo -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm">
+                        <h4 class="font-bold text-gray-500 mb-6 uppercase text-xs tracking-widest">Días de Aprobación de Obras</h4>
+                        <div class="h-64"><canvas id="timeChart"></canvas></div>
+                        <p class="mt-4 text-xs text-gray-400 italic">Reducción del 72% en tiempos administrativos</p>
+                    </div>
+                    <!-- Gráfico 2: Digitalización -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm">
+                        <h4 class="font-bold text-gray-500 mb-6 uppercase text-xs tracking-widest">Trámites Online / Mes</h4>
+                        <div class="h-64"><canvas id="participationChart"></canvas></div>
+                        <p class="mt-4 text-xs text-gray-400 italic">Incremento exponencial tras el lanzamiento de la App</p>
+                    </div>
+                    <!-- Gráfico 3: Nomenclatura -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm">
+                        <h4 class="font-bold text-gray-500 mb-6 uppercase text-xs tracking-widest">% Nomenclatura Urbana</h4>
+                        <div class="h-64"><canvas id="transparencyChart"></canvas></div>
+                        <p class="mt-4 text-xs text-gray-400 italic">Sectores georreferenciados y ordenados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solución Técnica 360 -->
+        <section id="detalles" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">La Estrategia CityGisMap</h2>
+                    <p class="text-gray-500">Un enfoque integral que cubrió todas las aristas del crecimiento municipal.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="sticky top-32">
+                        <div class="chart-container">
+                            <canvas id="solutionChart"></canvas>
+                        </div>
+                        <p class="text-center mt-6 text-sm text-gray-400 italic">Haz clic en las tarjetas laterales para explorar</p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div id="tab-0" class="solution-tab p-8 bg-white rounded-xl border-2 border-transparent cursor-pointer transition-all duration-300 active-tab shadow-sm" onclick="selectTab(0)">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">1. Planificación Geográfica</h3>
+                            <p class="text-gray-600 text-sm mb-4">Creación de un mapa interactivo con capas de parcelas, servicios y barrios. Fundamental para el ordenamiento territorial.</p>
+                            <img src="Ejemplo degrade 3.JPG" class="rounded-lg w-full mb-4">
+                            <a href="http://186.121.172.6:8080/geoserver/www/munifernandez.html" target="_blank" class="text-[#4A90E2] font-bold text-sm hover:underline">Acceder al Mapa Geoserver →</a>
+                        </div>
+
+                        <div id="tab-1" class="solution-tab p-8 bg-white rounded-xl border-2 border-transparent cursor-pointer transition-all duration-300 shadow-sm" onclick="selectTab(1)">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">2. Diseño y Normativa</h3>
+                            <p class="text-gray-600 text-sm">Actualización del Código de Construcción y el Plan Urbano, incluyendo la planificación de expansión poblacional e infraestructura.</p>
+                        </div>
+
+                        <div id="tab-2" class="solution-tab p-8 bg-white rounded-xl border-2 border-transparent cursor-pointer transition-all duration-300 shadow-sm" onclick="selectTab(2)">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">3. Gestión de Obras</h3>
+                            <p class="text-gray-600 text-sm">Proyectos de reactivación ferroviaria y cloacas, incluyendo memorias descriptivas y presupuestos técnicos para licitación.</p>
+                        </div>
+
+                        <div id="tab-3" class="solution-tab p-8 bg-white rounded-xl border-2 border-transparent cursor-pointer transition-all duration-300 shadow-sm" onclick="selectTab(3)">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">4. Digitalización</h3>
+                            <p class="text-gray-600 text-sm">Puesta en funcionamiento de la nueva Web y App municipal, permitiendo iniciar trámites y consultas de manera remota.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold mb-8 italic">Este modelo es replicable en tu municipio.</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="mailto:contacto@citygismap.com" class="bg-[#4A90E2] px-10 py-4 rounded-full font-bold hover:bg-[#357ABD] transition-all">Solicitar Información</a>
+                <a href="./index.html" class="bg-transparent border-2 border-gray-700 px-10 py-4 rounded-full font-bold hover:border-white transition-all">Volver a la Portada</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gráficos de Impacto
+        const barOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                x: { grid: { display: false } }
+            }
+        };
+
+        const solutionData = {
+            labels: ['Planificación', 'Diseño', 'Gestión', 'Digitalización'],
+            datasets: [{
+                data: [25, 25, 25, 25],
+                backgroundColor: ['#4A90E2', '#A6C8F0', '#6FA9E9', '#2D77C7'],
+                borderColor: '#FDFBF7',
+                borderWidth: 5
+            }]
+        };
+
+        let solutionChart;
+
+        function initCharts() {
+            // Dona Central
+            const ctxDona = document.getElementById('solutionChart').getContext('2d');
+            solutionChart = new Chart(ctxDona, {
+                type: 'doughnut',
+                data: solutionData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Barras: Tiempo
+            new Chart(document.getElementById('timeChart').getContext('2d'), {
+                type: 'bar',
+                data: { labels: ['Antes', 'CityGis'], datasets: [{ data: [90, 25], backgroundColor: ['#D1D5DB', '#4A90E2'], borderRadius: 8 }] },
+                options: barOptions
+            });
+
+            // Barras: Participación
+            new Chart(document.getElementById('participationChart').getContext('2d'), {
+                type: 'bar',
+                data: { labels: ['Antes', 'CityGis'], datasets: [{ data: [50, 650], backgroundColor: ['#D1D5DB', '#6FA9E9'], borderRadius: 8 }] },
+                options: barOptions
+            });
+
+            // Barras: Nomenclatura
+            new Chart(document.getElementById('transparencyChart').getContext('2d'), {
+                type: 'bar',
+                data: { labels: ['Antes', 'CityGis'], datasets: [{ data: [40, 95], backgroundColor: ['#D1D5DB', '#2D77C7'], borderRadius: 8 }] },
+                options: barOptions
+            });
+        }
+
+        function selectTab(index) {
+            document.querySelectorAll('.solution-tab').forEach((tab, i) => {
+                if (i === index) tab.classList.add('active-tab');
+                else tab.classList.remove('active-tab');
+            });
+            if (solutionChart) {
+                solutionChart.setActiveElements([{ datasetIndex: 0, index: index }]);
+                solutionChart.update();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initCharts);
+    </script>
+</body>
+</html>
