@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,24 +9,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #FDFBF7; color: #333; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #FDFBF7; 
+            color: #333; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
         .tech-box { border-left: 4px solid #4A90E2; background-color: white; }
+        
         .img-container { 
             overflow: hidden; 
             border-radius: 1.5rem; 
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
-            transform: translateZ(0); /* Estabiliza el renderizado */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background-color: #f3f4f6;
+            isolation: isolate; /* Crea un nuevo contexto de apilamiento para evitar parpadeos */
         }
+        
         .img-container img { 
-            transition: transform 0.5s ease; 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
             width: 100%; 
             height: auto; 
             display: block; 
-            -webkit-backface-visibility: hidden; 
-            backface-visibility: hidden; /* Evita vibraciones en el renderizado */
-            transform: translateZ(0);
+            will-change: transform; /* Prepara al navegador para la animación */
         }
-        .img-container:hover img { transform: scale(1.03); }
+        
+        .img-container:hover img { 
+            transform: scale(1.02); 
+        }
+
+        /* Previene el efecto de rebote o vibración al final del scroll */
+        main {
+            display: block;
+            min-height: 100vh;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -39,7 +56,7 @@
         </nav>
     </header>
 
-    <main>
+    <main class="pb-12">
         <!-- Intro Section -->
         <section class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6 text-center">
@@ -49,8 +66,8 @@
                     Desafío técnico en zona de serranías: Generación de cartografía de precisión y modelos de elevación para planificación de infraestructura.
                 </p>
                 <div class="img-container max-w-5xl mx-auto">
-                    <!-- Imagen principal de Villa La Punta -->
-                    <img src="Ejemplo degrade 3.JPG" alt="Villa La Punta Hero">
+                    <!-- Imagen principal actualizada según solicitud -->
+                    <img src="villalapunta-portada.jpg" alt="Villa La Punta Portada" onerror="this.src='https://via.placeholder.com/1200x600?text=Villa+La+Punta+Portada'">
                 </div>
             </div>
         </section>
